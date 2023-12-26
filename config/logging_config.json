@@ -1,0 +1,59 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "standard": {
+            "format": "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+        },
+        "json": {
+            "format": "%(asctime)s-[%(levelname)s]-%(name)s::%(module)s::%(funcName)s|%(lineno)s:: %(message)s",
+            "datefmt": "%Y-%m-%dT%H:%M:%SZ",
+            "class": "pythonjsonlogger.jsonlogger.JsonFormatter"
+        },
+        "detailed_info": {
+            "format": "%(asctime)s [%(levelname)s] %(name)s::%(module)s::%(funcName)s|%(lineno)s - %(message)s"
+        },
+        "error": {
+            "format": "%(asctime)s-%(levelname)s-%(name)s-%(process)d::%(module)s|%(lineno)s:: %(message)s"
+        },
+        "detailed_mem_cpu_info": {
+            "format": "%(asctime)s %(levelname)s %(psutil)s %(process)x:%(threadName)s:%(name)s:%(lineno)d:%(funcName)s: %(message)s"
+        }
+    },
+    "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "stream": "ext://sys.stdout",
+                "formatter": "json"
+            },
+            "rotating_file_handler": {
+                "class": "logging.handlers.RotatingFileHandler",
+                "filename": "../temp_logs/info.log",
+                "maxBytes": 1000000,
+                "backupCount": 5,
+                "formatter": "json",
+                "mode": "a"
+            },
+            "error_file_handler": {
+                "class": "logging.handlers.RotatingFileHandler",
+                "filename": "../temp_logs/error.log",
+                "backupCount": 5,
+                "formatter": "json",
+                "mode": "a",
+                "level": "ERROR"
+            }
+        },
+    "loggers": {
+        "" : {
+            "level": "DEBUG"
+        },
+        "utils": {
+            "handlers": ["rotating_file_handler", "error_file_handler", "console"],
+            "level": "DEBUG"
+        },
+        "app": {
+            "handlers": ["rotating_file_handler", "error_file_handler", "console"],
+            "level": "DEBUG"
+        }
+    }
+}

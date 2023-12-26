@@ -1,0 +1,11 @@
+2023-12-26 23:34:23,409-INFO-app.fileProcessor::fileProcessor|27:: read_data called ..
+2023-12-26 23:34:23,409-ERROR-utils.log_utils::app_utils|19:: Error reading file: [Errno 2] No such file or directory: 'data/input.txt'
+2023-12-26 23:34:23,409-ERROR-app.fileProcessor::fileProcessor|34:: Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]
+2023-12-26 23:35:02,388-ERROR-utils.log_utils::app_utils|19:: Error reading file: [Errno 2] No such file or directory: 'data/input.txt'
+2023-12-26 23:35:02,388-ERROR-app.fileProcessor::fileProcessor|33:: Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]
+2023-12-26 23:38:26,555 [ERROR] utils.log_utils::app_utils::read_data|19 - Error reading file: [Errno 2] No such file or directory: 'data/input.txt'
+2023-12-26 23:38:26,555 [ERROR] app.fileProcessor::fileProcessor::process_file|33 - Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]
+{"asctime": "2023-12-26T23:39:47Z", "levelname": "ERROR", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 19, "message": "Error reading file: [Errno 2] No such file or directory: 'data/input.txt'"}
+{"asctime": "2023-12-26T23:39:47Z", "levelname": "ERROR", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 33, "message": "Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]"}
+{"asctime": "2023-12-26T23:43:47Z", "levelname": "INFO", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 12, "message": "data read successfully.."}
+{"asctime": "2023-12-26T23:43:47Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 30, "message": "File processing successful!"}

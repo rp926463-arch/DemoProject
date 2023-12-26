@@ -1,0 +1,8 @@
+2023-12-26 23:34:23,409-ERROR-utils.log_utils-30584::app_utils|19:: Error reading file: [Errno 2] No such file or directory: 'data/input.txt'
+2023-12-26 23:34:23,409-ERROR-app.fileProcessor-30584::fileProcessor|34:: Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]
+2023-12-26 23:35:02,388-ERROR-utils.log_utils-23772::app_utils|19:: Error reading file: [Errno 2] No such file or directory: 'data/input.txt'
+2023-12-26 23:35:02,388-ERROR-app.fileProcessor-23772::fileProcessor|33:: Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]
+2023-12-26 23:38:26,555-ERROR-utils.log_utils-7448::app_utils|19:: Error reading file: [Errno 2] No such file or directory: 'data/input.txt'
+2023-12-26 23:38:26,555-ERROR-app.fileProcessor-7448::fileProcessor|33:: Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]
+{"asctime": "2023-12-26T23:39:47Z", "levelname": "ERROR", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 19, "message": "Error reading file: [Errno 2] No such file or directory: 'data/input.txt'"}
+{"asctime": "2023-12-26T23:39:47Z", "levelname": "ERROR", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 33, "message": "Custom Exception caught: fileReader::read_data(): FileNotFoundError - [Errno 2] No such file or directory: 'data/input.txt' [Line No 10]"}
