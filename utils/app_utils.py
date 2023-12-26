@@ -6,6 +6,18 @@ class AppUtils:
 
     @staticmethod
     def read_data(file_path):
+        """
+        Reads data from a file.
+
+        Args:
+            file_path (str): The path to the file.
+
+        Returns:
+            str: The content of the file.
+
+        Raises:
+            CustomBaseException: If an error occurs during file reading.
+        """
         try:
             with open(file_path, 'r') as file:
                 data = file.read()
@@ -21,6 +33,16 @@ class AppUtils:
 
     @staticmethod
     def save_data(processed_data, file_path):
+        """
+        Saves processed data to a file.
+
+        Args:
+            processed_data (str): The data to be saved.
+            file_path (str): The path to the file.
+
+        Raises:
+            CustomBaseException: If an error occurs during file writing.
+        """
         try:
             with open(file_path, 'w') as file:
                 file.write(processed_data)
