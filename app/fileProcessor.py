@@ -47,11 +47,8 @@ class FileProcessor:
 
     def process_file(self):
         try:
-            # Load logging configuration
-            logging_config = LogUtils.load_logging_config(self.config_path)
-
             # Configure logging
-            LogUtils.configure_logging(logging_config)
+            LogUtils.configure_logging(self.config_path)
 
             # Data processing
             file_iterator = (filename for pattern in self.input_file for filename in glob.iglob(pattern))

@@ -38,11 +38,21 @@ class LogUtils:
             raise CustomBaseException(errorMessage)
 
     @staticmethod
-    def configure_logging(logging_config):
+    def configure_logging(config_path):
+
         """
-        Configure logging using the provided logging configuration.
+        Configure logging using the provided or default logging configuration.
 
         Args:
-            logging_config (dict): Logging configuration.
+            config_path (str): Path to the logging configuration file.
         """
-        logging.config.dictConfig(logging_config)
+        try:
+            logging_config = LogUtils.load_logging_config(config_path)
+            logging.config.dictConfig(logging_config)
+        except Exception as exc_obj:
+            exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
+            template = "log_utils::configure_logging(): {1} - {2} [Line No {0}]"
+            errorMessage = template.format(exc_tb.tb_lineno, exc_type.__name__, exc_obj)
+
+            LogUtils.logger().error(f"Error configuring log config: {exc_obj}")
+            raise CustomBaseException(errorMessage)

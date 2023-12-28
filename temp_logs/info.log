@@ -151,3 +151,6 @@
 {"asctime": "2023-12-28T17:27:54Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 60, "message": "file processing ..: data/input.txt"}
 {"asctime": "2023-12-28T17:27:54Z", "levelname": "INFO", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 24, "message": "data read successfully.."}
 {"asctime": "2023-12-28T17:27:54Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 64, "message": "data/input.txt : File processing successful..!"}
+{"asctime": "2023-12-28T22:37:58Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 57, "message": "file processing ..: data/input.txt"}
+{"asctime": "2023-12-28T22:37:58Z", "levelname": "INFO", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 24, "message": "data read successfully.."}
+{"asctime": "2023-12-28T22:37:58Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 61, "message": "data/input.txt : File processing successful..!"}

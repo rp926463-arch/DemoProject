@@ -19,10 +19,8 @@ class Test_FileProcessor(unittest.TestCase):
     @patch('utils.app_utils.AppUtils.read_data')
     @patch('glob.iglob')
     @patch('utils.log_utils.LogUtils.configure_logging')
-    @patch('utils.log_utils.LogUtils.load_logging_config')
-    def test_process_file(self, mock_load_config, mock_conf_log, mock_iglob, mock_read, mock_processed, mock_save):
+    def test_process_file(self, mock_conf_log, mock_iglob, mock_read, mock_processed, mock_save):
         # setup mock return to internal calls
-        mock_load_config.return_value = {"test_key": "test_value"}
         mock_iglob.return_value = ['dummy_infile1.txt', 'dummy_infile2.txt']
         mock_read.return_value = "abc"
         mock_processed.return_value = "ABC"
@@ -31,7 +29,7 @@ class Test_FileProcessor(unittest.TestCase):
         self.tc.process_file()
 
         # Verify configure_logging called with expected input
-        mock_conf_log.assert_called_with(mock_load_config.return_value)
+        mock_conf_log.assert_called_with(self.tc.config_path)
 
         # Verify that iglob was called with the correct input_file patterns
         mock_iglob.assert_called_with(mock_iglob.return_value[-1])
