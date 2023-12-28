@@ -35,4 +35,4 @@ if __name__ == "__main__":
 
 # python main.py -i "data/i*.txt" "data/o*.txt" -o "data/output.txt"
 # python main.py -i "data/input.txt" "data/output.txt" -o "data/output.txt"
-# python main.py -i "data/input.txt" "data/output.txt" -o "data/output.txt" -d
+# python main.py -i data/input.txt data/output.txt -o data/output.txt -d
