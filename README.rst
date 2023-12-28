@@ -16,7 +16,7 @@ ExceptionTest
 
 
 
-This script is to demonstrate best practices to implement exception handing, logging & argument parsers
+This script is to demonstrate best practices to implement exception handing, logging, command line argument parsers & test cases using unittest python.
 
 
 * Free software: license
@@ -29,6 +29,7 @@ Features
 * Best practices to do exception handling (python)
 * Best practices for logging (python)
 * Best practices to handle command line arguments (python)
+* Best practices to write test cases using unittest - build in testing library (python)
 
 
 Contributors
