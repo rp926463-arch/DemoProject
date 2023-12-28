@@ -24,21 +24,22 @@ class Test_FileProcessor(unittest.TestCase):
         # setup mock return to internal calls
         mock_load_config.return_value = {"test_key": "test_value"}
         mock_iglob.return_value = ['dummy_infile1.txt', 'dummy_infile2.txt']
-        mock_read.return_value = "dataread"
-        mock_processed.return_value = "DATAREAD"
+        mock_read.return_value = "abc"
+        mock_processed.return_value = "ABC"
 
         # Run the process_file method
         self.tc.process_file()
 
         # Verify configure_logging called with expected input
-        mock_conf_log.assert_called_with({"test_key": "test_value"})
+        mock_conf_log.assert_called_with(mock_load_config.return_value)
 
         # Verify that iglob was called with the correct input_file patterns
-        mock_iglob.assert_called_with('dummy_infile2.txt')
+        mock_iglob.assert_called_with(mock_iglob.return_value[-1])
 
-        # Verify that read_data and save_data were called
-        mock_read.assert_called_with('dummy_infile2.txt')
-        mock_save.assert_called_with('DATAREAD', 'dummy_outfile.txt')
+        # Verify that read_data, process_data and save_data were called
+        mock_processed.assert_called_with(mock_read.return_value)
+        mock_read.assert_called_with(mock_iglob.return_value[-1])
+        mock_save.assert_called_with(mock_processed.return_value, self.tc.output_file)
 
     def tearDown(self) -> None:
         pass
