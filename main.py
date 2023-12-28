@@ -1,4 +1,6 @@
 import argparse
+import textwrap
+
 from app.fileProcessor import FileProcessor
 import os
 
@@ -20,11 +22,12 @@ def main(input_file_path, output_file_path, debug):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='This is wrapper script..', epilog="There you go :)", allow_abbrev=False)
     parser.add_argument('--version', '-v', action='version', version='%(prog)s 2.0')
-    parser.add_argument('--infile', '-i', required=True, nargs='+')
-    parser.add_argument('--outfile', '-o', required=True, type=str)
-    parser.add_argument('--debug', '-d', nargs='?', const=1, default=0)
+    parser.add_argument('--infile', '-i', required=True, nargs='+', help='Input files to process, can accept patterns '
+                                                                         '& multiple arguments', metavar=('infile1.txt', 'infile2.txt'))
+    parser.add_argument('--outfile', '-o', required=True, type=str, help='Output file path to store processed data')
+    parser.add_argument('--debug', '-d', nargs='?', const=1, default=0, metavar='1/0')
     args = parser.parse_args()
     print(f"Arguments received : {args}")
 
