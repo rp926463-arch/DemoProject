@@ -44,7 +44,7 @@ class AppUtils:
             CustomBaseException: If an error occurs during file writing.
         """
         try:
-            with open(file_path, 'w') as file:
+            with open(file_path, 'a') as file:
                 file.write(processed_data)
         except Exception as exc_obj:
             exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
