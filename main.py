@@ -4,6 +4,13 @@ import os
 
 
 def main(input_file_path, output_file_path, debug):
+    """
+
+    Args:
+            input_file_path (list): Input file patten/path received from command line arguments
+            output_file_path (str): Output file patten/path received from command line arguments
+            debug (boolean): Debug mode
+    """
     # Use absolute paths for configuration and data files
     config_path = os.path.abspath('config/logging_config.json')
 

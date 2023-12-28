@@ -8,6 +8,15 @@ from utils.log_utils import LogUtils
 
 class FileProcessor:
     def __init__(self, input_file, output_file, config_path, debug):
+        """
+
+        Args:
+            input_file (list): Input file patten/path received from command line arguments
+            output_file (str): Output file patten/path received from command line arguments
+            config_path (str): Log Configuration
+            debug (boolean): Debug mode
+
+        """
         self.input_file = input_file
         self.output_file = output_file
         self.config_path = config_path
@@ -15,6 +24,14 @@ class FileProcessor:
         self.logger = logging.getLogger(__name__)
 
     def process_data(self, data):
+        """
+
+        Args:
+            data (str): Data read from input files
+
+        Returns:
+            str: Data after processing.
+        """
         try:
             # Example: Convert data to uppercase
             processed_data = data.upper()

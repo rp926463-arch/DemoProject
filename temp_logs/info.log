@@ -121,3 +121,12 @@
 {"asctime": "2023-12-28T10:19:17Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 43, "message": "file processing ..: data/output.txt"}
 {"asctime": "2023-12-28T10:19:17Z", "levelname": "INFO", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 24, "message": "data read successfully.."}
 {"asctime": "2023-12-28T10:19:17Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 47, "message": "data/output.txt : File processing successful..!"}
+{"asctime": "2023-12-28T10:34:46Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 55, "message": "file processing ..: data/input.txt"}
+{"asctime": "2023-12-28T10:34:46Z", "levelname": "INFO", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 24, "message": "data read successfully.."}
+{"asctime": "2023-12-28T10:34:46Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 59, "message": "data/input.txt : File processing successful..!"}
+{"asctime": "2023-12-28T10:34:46Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 55, "message": "file processing ..: data/output.txt"}
+{"asctime": "2023-12-28T10:34:46Z", "levelname": "INFO", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 24, "message": "data read successfully.."}
+{"asctime": "2023-12-28T10:34:46Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 59, "message": "data/output.txt : File processing successful..!"}
+{"asctime": "2023-12-28T10:41:05Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 57, "message": "file processing ..: data/input.txt"}
+{"asctime": "2023-12-28T10:41:05Z", "levelname": "INFO", "name": "utils.log_utils", "module": "app_utils", "funcName": "read_data", "lineno": 24, "message": "data read successfully.."}
+{"asctime": "2023-12-28T10:41:05Z", "levelname": "INFO", "name": "app.fileProcessor", "module": "fileProcessor", "funcName": "process_file", "lineno": 61, "message": "data/input.txt : File processing successful..!"}
