@@ -26,10 +26,10 @@ This script is to demonstrate best practices to implement exception handing, log
 Features
 --------
 
-* Best practices to do `exception handling <https://docs.python.org/3/tutorial/errors.html#exceptions>`_ (python)
-* Best practices for `logging <https://docs.python.org/3/howto/logging.html>`_ (python)
-* Best practices to handle command line arguments using `argparser <https://docs.python.org/3/library/argparse.html>`_ (python)
-* Best practices to write test cases using `unittest <https://docs.python.org/3/library/unittest.html>`_ - build in testing library (python)
+* Best practices to do `exception handling <https://docs.python.org/3/tutorial/errors.html#exceptions>`_ (python).
+* Best practices for `logging <https://docs.python.org/3/howto/logging.html>`_ (python).
+* Best practices to handle command line arguments using `argparser <https://docs.python.org/3/library/argparse.html>`_ (python).
+* Best practices to write test cases using `unittest <https://docs.python.org/3/library/unittest.html>`_ - build in testing library (python).
 
 
 Contributors
