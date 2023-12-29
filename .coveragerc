@@ -1,0 +1,10 @@
+[run]
+include =
+    app/*
+    controllers/*
+    dao/*
+    utils/*
+omit =
+    # omit this single file
+    dao/customBaseException.py
+    */__init__.py
