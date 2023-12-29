@@ -41,7 +41,7 @@ Features
         - coverage report -m --> generate .coverage file & show report in sys.out
         - coverage html --> generate html report of coverage
 
-    Note : Exclusion and inclusion criteria can be added in .coveragerc file (it has to be placed in the basepath)
+    Note : `Exclusion and Inclusion <https://coverage.readthedocs.io/en/7.4.0/source.html#source>`_ criteria can be added in .coveragerc file (it has to be placed in the basepath)
 
 Contributors
 ------------
