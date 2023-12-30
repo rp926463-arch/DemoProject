@@ -1,6 +1,7 @@
 import unittest
-from app.fileProcessor import FileProcessor
 from unittest.mock import patch
+from app.fileProcessor import FileProcessor
+from dao.customBaseException import CustomBaseException
 
 
 class Test_FileProcessor(unittest.TestCase):
@@ -14,6 +15,15 @@ class Test_FileProcessor(unittest.TestCase):
         output_data = 'ABC'
         self.assertEqual(processed_data, output_data)
 
+    def test_process_data_exception_handling(self):
+        with self.assertRaises(CustomBaseException) as context:
+            self.tc.process_data(None)
+
+        self.assertEqual(
+            str(context.exception),
+            "dataProcessor::process_data(): AttributeError - 'NoneType' object has no attribute 'upper' [Line No 37]"
+        )
+
     @patch('utils.app_utils.AppUtils.save_data')
     @patch('app.fileProcessor.FileProcessor.process_data')
     @patch('utils.app_utils.AppUtils.read_data')
@@ -21,7 +31,7 @@ class Test_FileProcessor(unittest.TestCase):
     @patch('utils.log_utils.LogUtils.configure_logging')
     def test_process_file(self, mock_conf_log, mock_iglob, mock_read, mock_processed, mock_save):
         # setup mock return to internal calls
-        mock_iglob.return_value = ['dummy_infile1.txt', 'dummy_infile2.txt']
+        mock_iglob.return_value = self.tc.input_file
         mock_read.return_value = "abc"
         mock_processed.return_value = "ABC"
 
@@ -38,6 +48,31 @@ class Test_FileProcessor(unittest.TestCase):
         mock_processed.assert_called_with(mock_read.return_value)
         mock_read.assert_called_with(mock_iglob.return_value[-1])
         mock_save.assert_called_with(mock_processed.return_value, self.tc.output_file)
+
+    @patch('utils.log_utils.LogUtils.configure_logging')
+    def test_process_file_generic_exception(self, mock_conf_log):
+        self.tc.input_file = None
+        with self.assertLogs(logger='app.fileProcessor', level='ERROR') as log_context:
+            self.tc.process_file()
+
+        self.assertEqual(
+            str(log_context.records[0].msg),
+            "Error : fileProcessor::process_file(): TypeError - 'NoneType' object is not iterable [Line No 54]"
+        )
+
+    @patch('utils.app_utils.AppUtils.read_data')
+    @patch('glob.iglob')
+    @patch('utils.log_utils.LogUtils.configure_logging')
+    def test_process_file_custom_exception(self, mock_conf_log, mock_iglob, mock_read):
+        mock_iglob.return_value = self.tc.input_file
+        mock_read.return_value = 1
+        with self.assertLogs(logger='app.fileProcessor', level='ERROR') as log_context:
+            self.tc.process_file()
+
+        self.assertEqual(
+            str(log_context.records[0].msg),
+            "Error processing data: 'int' object has no attribute 'upper'"
+        )
 
     def tearDown(self) -> None:
         pass
