@@ -27,7 +27,7 @@ class AppUtils:
 
         except Exception as exc_obj:
             exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
-            template = "fileReader::read_data(): {1} - {2} [Line No {0}]"
+            template = "app_utils::read_data(): {1} - {2} [Line No {0}]"
             errorMessage = template.format(exc_tb.tb_lineno, exc_type.__name__, exc_obj)
 
             AppUtils.logger.error(f"Error reading file: {exc_obj}")
@@ -51,7 +51,7 @@ class AppUtils:
 
         except Exception as exc_obj:
             exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
-            template = "fileWriter::save_data(): {1} - {2} [Line No {0}]"
+            template = "app_utils::save_data(): {1} - {2} [Line No {0}]"
             errorMessage = template.format(exc_tb.tb_lineno, exc_type.__name__, exc_obj)
 
             AppUtils.logger.error(f"Error saving data to file: {exc_obj}")
