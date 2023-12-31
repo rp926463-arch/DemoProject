@@ -1,5 +1,5 @@
 =============
-ExceptionTest
+DemoProject
 =============
 
 
@@ -20,7 +20,7 @@ This script is to demonstrate best practices to implement exception handing, log
 
 
 * Free software: license
-* Documentation: https://exceptiontest.readthedocs.io.
+* Documentation: https://demoproject.readthedocs.io.
 
 
 Features
