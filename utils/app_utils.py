@@ -9,10 +9,28 @@ class AppUtils:
 
     @staticmethod
     def convertToJson(dictObject):
+        """
+        Converts python dictionary to string
+
+        Args:
+            dictObject (dict): dict object.
+
+        Returns:
+            str: Dictionary string representation.
+        """
         return json.dumps(dictObject)
 
     @staticmethod
     def convertToDictionary(jsonObject):
+        """
+        Converts JSON string to python Dictionary
+
+        Args:
+            jsonObject (str): JSON string.
+
+        Returns:
+            dict: Python Dictionary.
+        """
         if isinstance(jsonObject, str):
             return json.loads(jsonObject)
         else:
@@ -24,6 +42,21 @@ class AppUtils:
 
     @staticmethod
     def postRequestWithRetry(url, headers, payload, proxies=None):
+        """
+        Post request to api.
+
+        Args:
+            url (str): URL of target API.
+            headers (str): Header information.
+            payload (str): Body information
+            proxies (str): proxy if any
+
+        Returns:
+            response (str): api response.
+
+        Raises:
+            CustomBaseException: If an error occurs during post api call.
+        """
         num_retries = 3
         try:
             for _ in range(num_retries):
@@ -42,6 +75,21 @@ class AppUtils:
 
     @staticmethod
     def getRequestWithRetry(url, headers, payload=None, proxies=None):
+        """
+        Get request to api.
+
+        Args:
+            url (str): URL of target API.
+            headers (str): Header information.
+            payload (str): Body information
+            proxies (str): proxy if any
+
+        Returns:
+            response (str): api response.
+
+        Raises:
+            CustomBaseException: If an error occurs during get api call.
+        """
         num_retries = 3
         try:
             for _ in range(num_retries):
