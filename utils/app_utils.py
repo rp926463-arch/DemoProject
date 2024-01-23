@@ -1,9 +1,62 @@
+import json
+import requests
 import logging
 from dao.customBaseException import CustomBaseException
 
 
 class AppUtils:
     logger = logging.getLogger(__name__)
+
+    @staticmethod
+    def convertToJson(dictObject):
+        return json.dumps(dictObject)
+
+    @staticmethod
+    def convertToDictionary(jsonObject):
+        if isinstance(jsonObject, str):
+            return json.loads(jsonObject)
+        else:
+            if jsonObject is not None:
+                dictionary = jsonObject.__dict__
+            else:
+                dictionary = None
+        return dictionary
+
+    @staticmethod
+    def postRequestWithRetry(url, headers, payload, proxies=None):
+        num_retries = 3
+        try:
+            for _ in range(num_retries):
+                response = requests.post(url=url, headers=headers, data=payload, proxies=proxies)
+                if response.status_code == 200:
+                    return response
+                else:
+                    raise Exception(response.text)
+        except Exception as exc_obj:
+            exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
+            template = "app_utils::postRequestWithRetry(): {1} - {2} [Line No {0}]"
+            errorMessage = template.format(exc_tb.tb_lineno, exc_type.__name__, exc_obj)
+
+            AppUtils.logger.error(f"Error in post request: {exc_obj}")
+            raise CustomBaseException(errorMessage)
+
+    @staticmethod
+    def getRequestWithRetry(url, headers, payload=None, proxies=None):
+        num_retries = 3
+        try:
+            for _ in range(num_retries):
+                response = requests.get(url=url, headers=headers, data=payload, proxies=proxies)
+                if response.status_code == 200:
+                    return response
+                else:
+                    raise Exception(response.text)
+        except Exception as exc_obj:
+            exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
+            template = "app_utils::getRequestWithRetry(): {1} - {2} [Line No {0}]"
+            errorMessage = template.format(exc_tb.tb_lineno, exc_type.__name__, exc_obj)
+
+            AppUtils.logger.error(f"Error in get request: {exc_obj}")
+            raise CustomBaseException(errorMessage)
 
     @staticmethod
     def read_data(file_path):
