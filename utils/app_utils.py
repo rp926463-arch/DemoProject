@@ -26,7 +26,7 @@ class AppUtils:
         Converts JSON string to python Dictionary
 
         Args:
-            jsonObject (str): JSON string.
+            jsonObject (str or object): JSON string.
 
         Returns:
             dict: Python Dictionary.
@@ -47,8 +47,8 @@ class AppUtils:
 
         Args:
             url (str): URL of target API.
-            headers (str): Header information.
-            payload (str): Body information
+            headers (dict): Header information.
+            payload (dict): Body information
             proxies (str): proxy if any
 
         Returns:
@@ -67,8 +67,8 @@ class AppUtils:
                     raise Exception(response.text)
         except Exception as exc_obj:
             exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
-            template = "app_utils::postRequestWithRetry(): {1} - {2} [Line No {0}]"
-            errorMessage = template.format(exc_tb.tb_lineno, exc_type.__name__, exc_obj)
+            template = "app_utils::postRequestWithRetry(): {0} - {1}"
+            errorMessage = template.format(exc_type.__name__, exc_obj)
 
             AppUtils.logger.error(f"Error in post request: {exc_obj}")
             raise CustomBaseException(errorMessage)
@@ -80,8 +80,8 @@ class AppUtils:
 
         Args:
             url (str): URL of target API.
-            headers (str): Header information.
-            payload (str): Body information
+            headers (dict): Header information.
+            payload (dict): Body information
             proxies (str): proxy if any
 
         Returns:
@@ -100,8 +100,8 @@ class AppUtils:
                     raise Exception(response.text)
         except Exception as exc_obj:
             exc_type, exc_tb = type(exc_obj), exc_obj.__traceback__
-            template = "app_utils::getRequestWithRetry(): {1} - {2} [Line No {0}]"
-            errorMessage = template.format(exc_tb.tb_lineno, exc_type.__name__, exc_obj)
+            template = "app_utils::getRequestWithRetry(): {0} - {1}"
+            errorMessage = template.format(exc_type.__name__, exc_obj)
 
             AppUtils.logger.error(f"Error in get request: {exc_obj}")
             raise CustomBaseException(errorMessage)
