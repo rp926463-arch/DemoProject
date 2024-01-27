@@ -1,3 +1,4 @@
+import json
 import unittest
 from unittest.mock import patch, MagicMock, Mock
 
@@ -92,8 +93,16 @@ class TestDbUtils(unittest.TestCase):
         mock_cursor_instance.execute.assert_called_with(update_query)
         mock_connection.commit.assert_called_once()
 
-    def test_pull_zk_config(self):
-        pass
+    @patch('os.environ', {'Env': 'dev'})
+    @patch('utils.db_utils.fetchZkNode')
+    def test_pull_zk_config(self, mock_fetchZkNode):
+        mock_node_details = {'key': 'value'}  # replace with your expected details
+        mock_fetchZkNode.return_value = json.dumps(mock_node_details)
+
+        result = DbUtils.pull_zk_config('znode', 'child_node')
+
+        mock_fetchZkNode.assert_called_with(zkpath='/child_node', environment='dev', node='znode')
+        self.assertEqual(result, mock_node_details)
 
     def tearDown(self) -> None:
         pass
