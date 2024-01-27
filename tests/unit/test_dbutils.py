@@ -96,7 +96,7 @@ class TestDbUtils(unittest.TestCase):
     @patch('os.environ', {'Env': 'dev'})
     @patch('utils.db_utils.fetchZkNode')
     def test_pull_zk_config(self, mock_fetchZkNode):
-        mock_node_details = {'key': 'value'}  # replace with your expected details
+        mock_node_details = {'key': 'value'}
         mock_fetchZkNode.return_value = json.dumps(mock_node_details)
 
         result = DbUtils.pull_zk_config('znode', 'child_node')
