@@ -28,7 +28,7 @@
             },
             "rotating_file_handler": {
                 "class": "logging.handlers.RotatingFileHandler",
-                "filename": "temp_logs/info.log",
+                "filename": "../temp_logs/info.log",
                 "maxBytes": 1000000,
                 "backupCount": 5,
                 "formatter": "json",
@@ -36,7 +36,7 @@
             },
             "error_file_handler": {
                 "class": "logging.handlers.RotatingFileHandler",
-                "filename": "temp_logs/error.log",
+                "filename": "../temp_logs/error.log",
                 "backupCount": 5,
                 "formatter": "json",
                 "mode": "a",
@@ -47,11 +47,7 @@
         "" : {
             "level": "DEBUG"
         },
-        "utils": {
-            "handlers": ["rotating_file_handler", "error_file_handler", "console"],
-            "level": "DEBUG"
-        },
-        "app": {
+        "demo_project.app": {
             "handlers": ["rotating_file_handler", "error_file_handler", "console"],
             "level": "DEBUG"
         }
